@@ -39,3 +39,8 @@ for(i in 4:ncol(cleanedSet)) {
     tidyData <- merge(tidyData, x)
 }
 write.table(tidyData, file="./tidyData.txt", row.name=FALSE)
+
+# Another way to do the step 5 with aggregate()
+
+# tidyData <- aggregate(. ~subject + activity, cleanedSet, mean)
+# write.table(tidyData, file="./tidyData.txt", row.name=FALSE)
