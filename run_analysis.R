@@ -31,7 +31,7 @@ cleanedSet <- cbind(completeSubject, activity = completeLabel, completeSet)
 
 # Step 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 groupedSet <- group_by(cleanedSet, activity, subject)
-tidyData <- summarise(groupedSet, colMeans(groupedSet[3]))
+tidyData <- summarise(groupedSet, colMeans(groupedSet[3])) ##should have used summarise_each() instead
 names(tidyData) <- c("activity", "subject", names(cleanedSet[3]))
 for(i in 4:ncol(cleanedSet)) {
     x <- summarise(groupedSet, colMeans(groupedSet[i]))
